@@ -45,6 +45,7 @@ package Getopt::CallingName;
 
 
 # pragmata
+use 5.006;
 use base qw(Exporter);
 use strict;
 use warnings;
@@ -55,7 +56,7 @@ use English;
 
 
 our @EXPORT = qw(call_name);
-our $VERSION = 0.90;
+our $VERSION = 1.00;
 
 #
 # PUBLIC CLASS METHODS
@@ -131,18 +132,47 @@ sub _get_name {
 
 1;
 
+=head1 INSTALLATION
 
-=head1 TODO
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+=head1 DEPENDENCIES
+
+This  module works only  with  perl v5.6 and higher.  I   am more than happy  to
+backport to an earlier perl 5.x if someone using an old  perl would like to make
+use of  my module. Mail  me  and ask me to  do  the work  [or  even better do it
+yourself and send in a patch! ;-)]
+
+This module requires these other modules and libraries:
+
+ Carp
+ Test::More
+
+The first is required for its operation. The second is for testing purposes
+
+This module has these optional dependencies:
+
+ File::Find::Rule
+ Test::Pod (0.95 or higher)
+
+These are both just requried for testing purposes.
+
+=head1 PLANNED ENHANCEMENTS
 
 =over 4
 
 =item *
 
-Make Test::Pod optonal? (skip tests if not installed}
+use Test::Distribution (fix it first)
 
 =item *
 
-Make module compaitble with earlier perl versions
+Add a method_suffix feature (rename prefix to name_prefix?)
 
 =back
 

@@ -1,5 +1,20 @@
 Revision history for Perl extension Getopt::CallingName.
 
+1.00  - Final tidying up for 1.00 CPAN release.
+      - Moved docs that were only in the README to module's pod. Now generate
+        the README from pod2text
+      - Removed Test::Pod and File::Find::Rule from Makefile.PL dependencies
+        list
+
+0.94  - Added a v-string to indicate that currently this module is expected to
+        only work with perl 5.6 and higher
+
+0.93  - Removed h2xs rubbish from README and added a description
+
+0.92  - Test::Pod and File::Find::Rule are now optional
+
+0.91  - Updated README with pre-requisites.
+
 0.90  - Updated documentation, prepared for 2nd cpan release
 
 0.60  - Test reorganisation

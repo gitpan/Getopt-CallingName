@@ -7,8 +7,6 @@ WriteMakefile(
     'VERSION_FROM'	=> 'lib/Getopt/CallingName.pm',
     'PREREQ_PM'		=> {
 			    'Carp'             => 0,
-			    'File::Find::Rule' => 0,
-			    'Test::Pod'        => 0.95,
 			    'Test::More'       => 0,
 			   },
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
