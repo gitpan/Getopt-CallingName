@@ -12,8 +12,8 @@ sub test_call_name {
 	local $PROGRAM_NAME = '/foo/bar/tv_record.perl';
 	my @sent_args = ('lala', 'po');
 	my %call_args = (
-			 prefix => 'tv_',
-			 args   => \@sent_args,
+			 name_prefix => 'tv_',
+			 args        => \@sent_args,
 			);
 	my $ret_val = 'the_same';
 
@@ -66,4 +66,7 @@ sub test_call_name {
  		print STDERR "Excepted: $expected\nGot: $@\n";
  		ok(0);
  	}
+
+
+	
 }

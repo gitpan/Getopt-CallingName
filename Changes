@@ -1,5 +1,9 @@
 Revision history for Perl extension Getopt::CallingName.
 
+1.10  - WARNING: Backwardly incompatible change: prefix parameter renamed to
+        name_prefix
+      - Added method_prefix and method_suffix options.
+
 1.01  - Changed $VERSION declaration from a "number" to a "string" to ensure
         make dist produces a tarball with all three digits and that CPAN pages
         show version number as full x.yy

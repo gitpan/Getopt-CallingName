@@ -6,8 +6,8 @@ Getopt::CallingName - Script duties delegation based upon calling name
 
  use Getopt::CallingName;
  call_name(
-           prefix => 'tv_',
-           args   => \@my_array,
+           name_prefix => 'tv_',
+           args        => \@my_array,
            );
 
 =head1 DESCRIPTION
@@ -56,7 +56,7 @@ use English;
 
 
 our @EXPORT = qw(call_name);
-our $VERSION = '1.01';
+our $VERSION = '1.10';
 
 #
 # PUBLIC CLASS METHODS
@@ -68,20 +68,29 @@ our $VERSION = '1.01';
 
 =head3 call_name
 
- call_name(prefix => $prefix, args => $ra_args)
+ call_name(
+            args          => $ra_args,
+            name_prefix   => $name_prefix,
+            method_prefix => $method_prefix,
+            method_suffix => $method_suffix,
+           )
 
-call_name accepts two optional arguments:
+call_name accepts the following optional arguments:
 
- prefix - string to chop off the script name. Useful if all your modes have a
-          common prefix (tv_record, tv_play ...)
+ method_prefix - string to prepend to the calculated method name
 
- args   - reference to an array which should be passed to the called sub.
+ method_suffix - string to append to the calculated method name
+
+ name_prefix - string to chop off the front  of the script name when calculating
+               the method  name.  Useful if all  your  modes have a common
+               prefix (tv_record, tv_play ...)
+
+ args         - reference to an array which should be passed to the called sub.
 
 call_name returns whatever the called subroutine returns.
 
 call_name checks the subroutine it is going to call to ensure it exists. If it
 does not exist, call name throws an 'exception' using Carp::croak.
-
 
 =cut
 
@@ -114,10 +123,14 @@ sub call_name {
 
 =head3 _get_name
 
- _get_name(prefix => $prefix)
+ _get_name(
+            name_prefix   => $name_prefix,
+            method_prefix => $method_prefix,
+            method_suffix => $method_suffix,
+           )
 
 Returns the $PROGRAM_NAME after     removing any path, prefix  (optional)    and
-extension.
+extension. Adds and optional method prefix and/or suffix as specified.
 
 =cut
 
@@ -125,7 +138,12 @@ sub _get_name {
 	my(%args) = @_;
 
 	my($name) =  $PROGRAM_NAME =~ m!^(?:(?:.*)/)?([^.]*)!;
-	$name =~ s/^$args{prefix}// if(defined $args{prefix});
+	$name =~ s/^$args{name_prefix}// if(defined $args{name_prefix});
+
+	$args{method_suffix} ||= '';
+	$args{method_prefix} ||= '';
+
+	$name  = $args{method_prefix} . $name . $args{method_suffix};
 
 	return $name;
 }
@@ -168,11 +186,12 @@ These are both just requried for testing purposes.
 
 =item *
 
-use Test::Distribution (get it/get someone to get it to work nice with latest Test::Pod first)
+Add a more general method name translation hook
 
 =item *
 
-Add a method_suffix feature (rename prefix to name_prefix?, also have method_prefix?)
+use Test::Distribution (get it/get someone to get it to work nice with latest
+Test::Pod first)
 
 =back
 

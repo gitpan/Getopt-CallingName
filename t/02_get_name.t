@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use English;
-use Test::More tests => 9;
+use Test::More tests => 11;
 
 BEGIN {
 	use_ok('Getopt::CallingName');
@@ -18,9 +18,13 @@ sub test_get_name {
 
 	is(Getopt::CallingName::_get_name(), 'hello_world');
 
-	is(Getopt::CallingName::_get_name( prefix => "hello_" ), 'world');
+	is(Getopt::CallingName::_get_name( name_prefix => "hello_" ), 'world');
 
-	is(Getopt::CallingName::_get_name( prefix => "goodbye_" ), 'hello_world');
+	is(Getopt::CallingName::_get_name( name_prefix => "goodbye_" ), 'hello_world');
+
+	is(Getopt::CallingName::_get_name( method_prefix => "oi_" ), 'oi_hello_world');
+
+	is(Getopt::CallingName::_get_name( method_suffix => "_aye" ), 'hello_world_aye');
 
 	# Other examples of $PROGRAM_NAME values:  full path without extension,
         #                                          filename with ext,
@@ -31,5 +35,6 @@ sub test_get_name {
 		$PROGRAM_NAME = $_;
 		is(Getopt::CallingName::_get_name(), 'hello_world');
 	}
+
 }
 
