@@ -1,0 +1,7 @@
+Changes
+MANIFEST
+Makefile.PL
+README
+lib/Getopt/CallingName.pm
+t/01_pod.t
+t/02_basic.t

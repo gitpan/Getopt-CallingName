@@ -1,0 +1,6 @@
+Revision history for Perl extension CallingName.
+
+0.01  Sun Jun  8 16:00:28 2003
+	- original version; created by h2xs 1.22 with options
+		-X CallingName
+
