@@ -56,7 +56,7 @@ use English;
 
 
 our @EXPORT = qw(call_name);
-our $VERSION = 1.00;
+our $VERSION = '1.01';
 
 #
 # PUBLIC CLASS METHODS
@@ -162,17 +162,17 @@ This module has these optional dependencies:
 
 These are both just requried for testing purposes.
 
-=head1 PLANNED ENHANCEMENTS
+=head1 POSSIBLE ENHANCEMENTS
 
 =over 4
 
 =item *
 
-use Test::Distribution (fix it first)
+use Test::Distribution (get it/get someone to get it to work nice with latest Test::Pod first)
 
 =item *
 
-Add a method_suffix feature (rename prefix to name_prefix?)
+Add a method_suffix feature (rename prefix to name_prefix?, also have method_prefix?)
 
 =back
 

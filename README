@@ -88,10 +88,12 @@ DEPENDENCIES
 
     These are both just requried for testing purposes.
 
-PLANNED ENHANCEMENTS
-    *   use Test::Distribution (fix it first)
+POSSIBLE ENHANCEMENTS
+    *   use Test::Distribution (get it/get someone to get it to work nice
+        with latest Test::Pod first)
 
-    *   Add a method_suffix feature (rename prefix to name_prefix?)
+    *   Add a method_suffix feature (rename prefix to name_prefix?, also
+        have method_prefix?)
 
 BUGS
     None known at time of writing. To report a bug or request an enhancement

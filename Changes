@@ -1,5 +1,9 @@
 Revision history for Perl extension Getopt::CallingName.
 
+1.01  - Changed $VERSION declaration from a "number" to a "string" to ensure
+        make dist produces a tarball with all three digits and that CPAN pages
+        show version number as full x.yy
+
 1.00  - Final tidying up for 1.00 CPAN release.
       - Moved docs that were only in the README to module's pod. Now generate
         the README from pod2text
