@@ -4,4 +4,5 @@ Makefile.PL
 README
 lib/Getopt/CallingName.pm
 t/01_pod.t
-t/02_basic.t
+t/02_get_name.t
+t/03_call_name.t

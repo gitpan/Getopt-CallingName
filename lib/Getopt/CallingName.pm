@@ -4,8 +4,11 @@ Getopt::CallingName - Script duties delegation based upon calling name
 
 =head1 SYNOPSIS
 
- use Getopt::CallingName;  #exports the delegate symbol by default
- #exact interface to be decided
+ use Getopt::CallingName;
+ call_name(
+           prefix => 'tv_',
+           args   => \@my_array,
+           );
 
 =head1 DESCRIPTION
 
@@ -29,18 +32,7 @@ Getopt::CallingName provides another  alternative.  The idea  is that you create
 symbolic links to  your actual script (which you   might want to give  a generic
 name). Each symbolic link corresponds  to the name/mode with  which you call the
 script.  Within your script, after  any  common setup/options handling you  call
-script delegate to call the appropriate script function for the mode.
-
-The  exact features of  Getopt::CallingName still  have to  be decided. The most
-basic feature  would   be to accept   a  hash of regex   =>  subrefs, evaluating
-$PROGRAM_NAME against the regexs.  Failure could be handled either via a default
-function, or perhaps a fatal error, or perhaps  throwing an Exception (Error.pm)
-for the script to deal with. The delegate  method itself would return the return
-value of    the subroutine that     it delegated  to.   Slightly  more  advanced
-functionality could  include inspecting the stash for  a method corresponding to
-the $PROGRAM_NAME (perhaps also allow  the script author  to specify a prefix so
-that scripts tv_play  and tv_record could  be implemented by methods  play() and
-record()).
+subroutine call_name to call the appropriate script subroutine for the mode.
 
 =head1 PUBLIC INTERFACE
 
@@ -58,13 +50,12 @@ use strict;
 use warnings;
 
 # Standard Perl Library and CPAN modules
+use Carp qw(croak);
 use English;
 
-# CORE modules
 
-
-our @EXPORT = qw(delegate);
-our $VERSION = 0.01;
+our @EXPORT = qw(call_name);
+our $VERSION = 0.90;
 
 #
 # PUBLIC CLASS METHODS
@@ -74,24 +65,39 @@ our $VERSION = 0.01;
 
 =head2 Public Class Methods
 
-=head3 delegate
+=head3 call_name
 
- delegate(%args)
+ call_name(prefix => $prefix, args => $ra_args)
 
-blah
+call_name accepts two optional arguments:
+
+ prefix - string to chop off the script name. Useful if all your modes have a
+          common prefix (tv_record, tv_play ...)
+
+ args   - reference to an array which should be passed to the called sub.
+
+call_name returns whatever the called subroutine returns.
+
+call_name checks the subroutine it is going to call to ensure it exists. If it
+does not exist, call name throws an 'exception' using Carp::croak.
+
 
 =cut
 
-sub delegate {
-	my($class, %args) = @_;
+sub call_name {
+	my(%args) = @_;
+	my $name = _get_name(%args);
+	my @args = ($args{args}) ? @{$args{args}} : ();
 
-	die("Not implemeted yet!!\n");
+	croak "Unable to call subroutine corresponding to name, &main::$name does not exist" unless(defined &{"main::$name"});
+	
+	{
+		package main;
+		no strict 'refs';
+		return $name->(@args);
+	}
 
-	my($self);
-
-	$self = {};
-	bless $self, $class;
-	$self;
+	1;
 }
 
 
@@ -101,30 +107,60 @@ sub delegate {
 
 
 
-# =head1 INTERNALS
+=head1 INTERNALS
 
-# =head2 Private Class Methods
+=head2 Private Class Methods
 
-# =head3 select
+=head3 _get_name
 
-#  bar()
+ _get_name(prefix => $prefix)
 
-# blah
+Returns the $PROGRAM_NAME after     removing any path, prefix  (optional)    and
+extension.
 
-# =cut
+=cut
 
-# sub bar {
-# 	my($self) = @_;
+sub _get_name {
+	my(%args) = @_;
 
-# 	$self;
-# }
+	my($name) =  $PROGRAM_NAME =~ m!^(?:(?:.*)/)?([^.]*)!;
+	$name =~ s/^$args{prefix}// if(defined $args{prefix});
+
+	return $name;
+}
 
 1;
 
 
+=head1 TODO
+
+=over 4
+
+=item *
+
+Make Test::Pod optonal? (skip tests if not installed}
+
+=item *
+
+Make module compaitble with earlier perl versions
+
+=back
+
+=head1 BUGS
+
+None known at time  of writing.  To report a  bug or request an enhancement  use
+CPAN's excellent Request Tracker:
+
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Getopt-CallingName>
 
 =head1 AUTHOR
 
 Sagar R. Shah
+
+=head1 COPYRIGHT
+
+Copyright 2003, Sagar R. Shah, All rights reserved
+
+You can use this module under the same terms as Perl itself.
 
 =cut

@@ -6,10 +6,12 @@ WriteMakefile(
     'NAME'		=> 'Getopt::CallingName',
     'VERSION_FROM'	=> 'lib/Getopt/CallingName.pm',
     'PREREQ_PM'		=> {
+			    'Carp'             => 0,
 			    'File::Find::Rule' => 0,
 			    'Test::Pod'        => 0.95,
-			   }, # e.g., Module::Name => 1.1
+			    'Test::More'       => 0,
+			   },
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM => 'lib/Getopt/CallingName.pm',
-       AUTHOR     => 'Sagar Shah (sagarshah@softhome.net)') : ()),
+       AUTHOR        => 'Sagar Shah (sagarshah@softhome.net)') : ()),
 );

@@ -1,6 +1,22 @@
-Revision history for Perl extension CallingName.
+Revision history for Perl extension Getopt::CallingName.
+
+0.90  - Updated documentation, prepared for 2nd cpan release
+
+0.60  - Test reorganisation
+
+0.50  - Added non-existant name checking
+
+0.40  - Added call_name argument passing
+
+0.30  - Added return value tests for call_name
+
+0.20  - Implemented call_name
+
+0.10  - Added tests for _get_name and implemented the method
+      - Renamed delegate method to call_name to fit in with 
+        suggested name for this module
 
 0.01  Sun Jun  8 16:00:28 2003
 	- original version; created by h2xs 1.22 with options
-		-X CallingName
+		-X Getopt::CallingName
 
