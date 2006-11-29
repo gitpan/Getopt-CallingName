@@ -52,11 +52,11 @@ use warnings;
 
 # Standard Perl Library and CPAN modules
 use Carp qw(croak);
-use English;
+use English qw( -no_match_vars);
 
 
 our @EXPORT = qw(call_name);
-our $VERSION = '1.10';
+our $VERSION = '1.12';
 
 #
 # PUBLIC CLASS METHODS
@@ -77,15 +77,15 @@ our $VERSION = '1.10';
 
 call_name accepts the following optional arguments:
 
- method_prefix - string to prepend to the calculated method name
+  method_prefix - string to prepend to the calculated method name
 
- method_suffix - string to append to the calculated method name
+  method_suffix - string to append to the calculated method name
 
- name_prefix - string to chop off the front  of the script name when calculating
+  name_prefix - string to chop off the front  of the script name when calculating
                the method  name.  Useful if all  your  modes have a common
                prefix (tv_record, tv_play ...)
 
- args         - reference to an array which should be passed to the called sub.
+  args         - reference to an array which should be passed to the called sub.
 
 call_name returns whatever the called subroutine returns.
 
@@ -187,11 +187,6 @@ These are both just requried for testing purposes.
 =item *
 
 Add a more general method name translation hook
-
-=item *
-
-use Test::Distribution (get it/get someone to get it to work nice with latest
-Test::Pod first)
 
 =back
 
