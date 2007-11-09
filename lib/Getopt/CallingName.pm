@@ -56,7 +56,7 @@ use English qw( -no_match_vars);
 
 
 our @EXPORT = qw(call_name);
-our $VERSION = '1.12';
+our $VERSION = '1.13';
 
 #
 # PUBLIC CLASS METHODS
@@ -197,14 +197,22 @@ CPAN's excellent Request Tracker:
 
 L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Getopt-CallingName>
 
+=head1 SOURCE AVAILABILITY
+
+This source is part of a SourceForge project which always has the
+latest sources in svn.
+
+http://sourceforge.net/projects/sagar-r-shah/
+
 =head1 AUTHOR
 
 Sagar R. Shah
 
 =head1 COPYRIGHT
 
-Copyright 2003, Sagar R. Shah, All rights reserved
+Copyright 2003-2007, Sagar R. Shah, All rights reserved
 
-You can use this module under the same terms as Perl itself.
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
 
 =cut

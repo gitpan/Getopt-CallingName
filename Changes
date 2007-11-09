@@ -1,5 +1,7 @@
 Revision history for Perl extension Getopt::CallingName.
 
+1.13  - POD Updates
+
 1.12  - Pass -no_match_vars to English to avoid performance penalty of unused
         match variables
       - Change from ExtUtils:MakeMaker to Module::Build

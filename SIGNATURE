@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.53.
+signed via the Module::Signature module, version 0.55.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -15,19 +15,19 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 064e17630cae3e9dc33bbfe078eb87feb9fe8844 Build.PL
-SHA1 9b18ea4903e972a2652b1338204007c0d0306797 Changes
+SHA1 dedd5f5f41697e836e6d61085afb187491a1c7a8 Changes
 SHA1 a8967eddaa5dcf742d566f018a16e3871a10d9de MANIFEST
-SHA1 4e218e15194a21b1178f294d98a6b1d9c79ce386 META.yml
+SHA1 eac57ceb80844d7bff394fc2fc0228ebe4db113e META.yml
 SHA1 cd14ada78fb37a0d926edd86eddcdf7f939de582 Makefile.PL
-SHA1 e0c34433c18b95a227162ac8d41b4831ef78078f README
-SHA1 50cac167e9aa26c75ed96fee6e53322fc96e3d24 lib/Getopt/CallingName.pm
+SHA1 22c014bf21c13982fc2a327e0d2b9d8877b24d50 README
+SHA1 e2e837e5fb478a17519131f2530143f0e68fb860 lib/Getopt/CallingName.pm
 SHA1 01c3db36930081fa66154985efc56d8835c7c14c t/01_distribution.t
 SHA1 fbb428f6fa5568bddcd99aed5213e265cafe7d06 t/02_get_name.t
 SHA1 d8e979ce5962c1ff5254c9e04dd7ff5d63145066 t/03_call_name.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.3 (GNU/Linux)
+Version: GnuPG v1.4.6 (GNU/Linux)
 
-iD8DBQFFbQnybD1fM9M5ytIRAlMmAJ9K8jaQqCRJkQfQ1uNO923InxDGMACePPNb
-3xOiV/8uBePJxZ4FINydyjk=
-=ah+G
+iD8DBQFHNKpMbD1fM9M5ytIRAvVgAJwN2clgjm8MyFbL6FG3aqUyxdHTaACeK/qN
+rsChrPMzHiloPJ9veLxNi3w=
+=FLZ9
 -----END PGP SIGNATURE-----
