@@ -1,5 +1,7 @@
 Revision history for Perl extension Getopt::CallingName.
 
+1.15  - Fixed test so it works on non unix OS path styles
+
 1.14  - No longer sign dist
       - Document requirement for perl 5.6 or above in Build.PL as well as .pm file
 

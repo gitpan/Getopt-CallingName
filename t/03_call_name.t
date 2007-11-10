@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use English;
 use Test::More tests => 5;
+use File::Spec::Functions qw(catpath);
 
 use Getopt::CallingName;
 
@@ -35,7 +36,9 @@ sub test_call_name {
 
 	# calling a non-existant method
 	$PROGRAM_NAME = '/foo/bar/tv_stop.perl';
-	my $expected = qr!Unable to call subroutine corresponding to name, &main::stop does not exist at t/03_call_name.t line \d+!;
+    my $path = catpath(undef, 't', '03_call_name.t'); 
+	my $expected = qr!Unable to call subroutine corresponding to name, &main::stop does not exist at $path line \d+!;
+
 	eval{
 		call_name(%call_args);
 	};

@@ -9,5 +9,5 @@ Module::Build->new(
         'Test::More' => 0,
     },
     create_readme        => 1,
-    add_to_cleanup       => [ 'Getopt-CallingName-*' ],
+    add_to_cleanup       => [ '*.tar.gz', 'Build', '_build' ],
 )->create_build_script;
