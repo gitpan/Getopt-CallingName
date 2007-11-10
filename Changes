@@ -1,5 +1,8 @@
 Revision history for Perl extension Getopt::CallingName.
 
+1.14  - No longer sign dist
+      - Document requirement for perl 5.6 or above in Build.PL as well as .pm file
+
 1.13  - POD Updates
 
 1.12  - Pass -no_match_vars to English to avoid performance penalty of unused

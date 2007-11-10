@@ -8,4 +8,3 @@ t/03_call_name.t
 Makefile.PL
 README
 META.yml
-SIGNATURE    Added here by Module::Build
