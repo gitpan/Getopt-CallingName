@@ -56,7 +56,7 @@ use English qw( -no_match_vars);
 
 
 our @EXPORT = qw(call_name);
-our $VERSION = '1.15';
+our $VERSION = '1.16';
 
 #
 # PUBLIC CLASS METHODS
