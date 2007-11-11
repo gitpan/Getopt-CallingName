@@ -1,5 +1,7 @@
 Revision history for Perl extension Getopt::CallingName.
 
+1.17  - Third time lucky?
+
 1.16  - More test fixes
 
 1.15  - Fixed test so it works on non unix OS path styles
