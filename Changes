@@ -1,5 +1,7 @@
 Revision history for Perl extension Getopt::CallingName.
 
+1.18  - Require perl version in another way...
+
 1.17  - Third time lucky?
 
 1.16  - More test fixes

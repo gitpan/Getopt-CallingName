@@ -1,6 +1,6 @@
 ---
 name: Getopt-CallingName
-version: 1.17
+version: 1.18
 author: []
 abstract: Script duties delegation based upon calling name
 license: perl
@@ -8,11 +8,10 @@ resources:
   license: http://dev.perl.org/licenses/
 requires:
   Test::More: 0
-  perl: 5.006
 provides:
   Getopt::CallingName:
     file: lib/Getopt/CallingName.pm
-    version: 1.17
+    version: 1.18
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

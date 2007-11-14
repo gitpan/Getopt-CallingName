@@ -1,3 +1,4 @@
+use 5.006;
 use Module::Build;
 # See perldoc Module::Build for details of how this works
 
@@ -5,7 +6,6 @@ Module::Build->new(
     license              => 'perl',
     module_name          => 'Getopt::CallingName',
     requires             => {
-        'perl'       => '5.006',
         'Test::More' => 0,
     },
     create_readme        => 1,
